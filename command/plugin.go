@@ -50,7 +50,6 @@ import (
 	tencentcloudcvmbuilder "github.com/hashicorp/packer/builder/tencentcloud/cvm"
 	tritonbuilder "github.com/hashicorp/packer/builder/triton"
 	uclouduhostbuilder "github.com/hashicorp/packer/builder/ucloud/uhost"
-	vagrantbuilder "github.com/hashicorp/packer/builder/vagrant"
 	virtualboxisobuilder "github.com/hashicorp/packer/builder/virtualbox/iso"
 	virtualboxovfbuilder "github.com/hashicorp/packer/builder/virtualbox/ovf"
 	virtualboxvmbuilder "github.com/hashicorp/packer/builder/virtualbox/vm"
@@ -69,8 +68,6 @@ import (
 	manifestpostprocessor "github.com/hashicorp/packer/post-processor/manifest"
 	shelllocalpostprocessor "github.com/hashicorp/packer/post-processor/shell-local"
 	ucloudimportpostprocessor "github.com/hashicorp/packer/post-processor/ucloud-import"
-	vagrantpostprocessor "github.com/hashicorp/packer/post-processor/vagrant"
-	vagrantcloudpostprocessor "github.com/hashicorp/packer/post-processor/vagrant-cloud"
 	vspherepostprocessor "github.com/hashicorp/packer/post-processor/vsphere"
 	vspheretemplatepostprocessor "github.com/hashicorp/packer/post-processor/vsphere-template"
 	yandexexportpostprocessor "github.com/hashicorp/packer/post-processor/yandex-export"
@@ -137,7 +134,6 @@ var Builders = map[string]packersdk.Builder{
 	"tencentcloud-cvm": new(tencentcloudcvmbuilder.Builder),
 	"triton":           new(tritonbuilder.Builder),
 	"ucloud-uhost":     new(uclouduhostbuilder.Builder),
-	"vagrant":          new(vagrantbuilder.Builder),
 	"virtualbox-iso":   new(virtualboxisobuilder.Builder),
 	"virtualbox-ovf":   new(virtualboxovfbuilder.Builder),
 	"virtualbox-vm":    new(virtualboxvmbuilder.Builder),
@@ -180,8 +176,6 @@ var PostProcessors = map[string]packersdk.PostProcessor{
 	"manifest":             new(manifestpostprocessor.PostProcessor),
 	"shell-local":          new(shelllocalpostprocessor.PostProcessor),
 	"ucloud-import":        new(ucloudimportpostprocessor.PostProcessor),
-	"vagrant":              new(vagrantpostprocessor.PostProcessor),
-	"vagrant-cloud":        new(vagrantcloudpostprocessor.PostProcessor),
 	"vsphere":              new(vspherepostprocessor.PostProcessor),
 	"vsphere-template":     new(vspheretemplatepostprocessor.PostProcessor),
 	"yandex-export":        new(yandexexportpostprocessor.PostProcessor),

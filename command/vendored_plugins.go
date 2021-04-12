@@ -20,6 +20,9 @@ import (
 	dockerpushpostprocessor "github.com/hashicorp/packer-plugin-docker/post-processor/docker-push"
 	dockersavepostprocessor "github.com/hashicorp/packer-plugin-docker/post-processor/docker-save"
 	dockertagpostprocessor "github.com/hashicorp/packer-plugin-docker/post-processor/docker-tag"
+	vagrantbuilder "github.com/hashicorp/packer-plugin-vagrant/builder/vagrant"
+	vagrantpostprocessor "github.com/hashicorp/packer-plugin-vagrant/post-processor/vagrant"
+	vagrantcloudpostprocessor "github.com/hashicorp/packer-plugin-vagrant/post-processor/vagrant-cloud"
 )
 
 // VendoredDatasources are datasource components that were once bundled with the
@@ -38,6 +41,7 @@ var VendoredBuilders = map[string]packersdk.Builder{
 	"amazon-ebssurrogate": new(amazonebssurrogatebuilder.Builder),
 	"amazon-ebsvolume":    new(amazonebsvolumebuilder.Builder),
 	"amazon-instance":     new(amazoninstancebuilder.Builder),
+	"vagrant":             new(vagrantbuilder.Builder),
 }
 
 // VendoredProvisioners are provisioner components that were once bundled with the
@@ -53,6 +57,8 @@ var VendoredPostProcessors = map[string]packersdk.PostProcessor{
 	"docker-tag":      new(dockertagpostprocessor.PostProcessor),
 	"exoscale-import": new(exoscaleimportpostprocessor.PostProcessor),
 	"amazon-import":   new(anazibimportpostprocessor.PostProcessor),
+	"vagrant":         new(vagrantpostprocessor.PostProcessor),
+	"vagrant-cloud":   new(vagrantcloudpostprocessor.PostProcessor),
 }
 
 // Upon init lets load up any plugins that were vendored manually into the default
