@@ -34,6 +34,21 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+       
+      # fix backwards incompatibilities in template
+      - name: Fix Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: fix
+
+      # validate templates
+      - name: Validate Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: examples/hcl/linux/build.ubuntu.pkr.hcl
+      
       - name: Packer GitHub Actions
         # You may pin to the exact commit or the version.
         # uses: hashicorp/packer-github-actions@2ef5cf325f2beace99a1742903eb52542765c08f
